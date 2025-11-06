@@ -27,9 +27,11 @@ body{
 nav{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
+    position: relative;
+    padding: 20px 0;
 }
 
 nav ul li{
@@ -42,6 +44,7 @@ nav ul li a{
     color: #fff;
     text-decoration: none;
     font-size: 18px;
+    position: relative;
 }
 
 nav ul li a:hover{
@@ -50,12 +53,13 @@ nav ul li a:hover{
 
 nav ul li a::after{
     content: '';
-    width: 100%;
+    width: 0;
     height: 3px;
     background: #c9900b;
     position: absolute;
     left: 0;
     bottom: -6px;
+    transition: 0.5s;
 }
 
 nav ul li a:hover::after{
