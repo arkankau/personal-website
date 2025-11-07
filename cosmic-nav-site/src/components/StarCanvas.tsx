@@ -279,33 +279,38 @@ export const StarCanvas = ({ onStarClick }: StarCanvasProps) => {
 
           // Draw marker/flag with icon for special stars (contact, education)
           if (star.marker && star.icon) {
-            const markerHeight = 35;
-            const markerY = y - size - markerHeight;
-            const iconSize = 16;
+            const poleHeight = 45;
+            const flagWidth = 50;
+            const flagHeight = 40;
+            const markerY = y - size - poleHeight;
             
             // Draw flag pole
             ctx.shadowBlur = 0;
             ctx.strokeStyle = "#f0cd55";
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(x, y - size);
             ctx.lineTo(x, markerY);
             ctx.stroke();
 
-            // Draw flag
+            // Draw square flag background
             ctx.fillStyle = "#c9900b";
-            ctx.beginPath();
-            ctx.moveTo(x, markerY);
-            ctx.lineTo(x + 30, markerY + 8);
-            ctx.lineTo(x, markerY + 16);
-            ctx.closePath();
-            ctx.fill();
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = "#c9900b88";
+            ctx.fillRect(x + 3, markerY - 5, flagWidth, flagHeight);
 
-            // Draw icon symbol on flag
+            // Draw flag border
+            ctx.strokeStyle = "#f0cd55";
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 0;
+            ctx.strokeRect(x + 3, markerY - 5, flagWidth, flagHeight);
+
+            // Draw icon symbol inside flag
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 12px Arial";
+            ctx.font = "bold 20px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
+            ctx.shadowBlur = 0;
             
             // Icon representation
             let iconText = "";
@@ -315,9 +320,11 @@ export const StarCanvas = ({ onStarClick }: StarCanvasProps) => {
                 break;
               case "linkedin":
                 iconText = "in";
+                ctx.font = "bold 18px Arial";
                 break;
               case "instagram":
                 iconText = "IG";
+                ctx.font = "bold 16px Arial";
                 break;
               case "phone":
                 iconText = "☎";
@@ -330,7 +337,7 @@ export const StarCanvas = ({ onStarClick }: StarCanvasProps) => {
                 break;
             }
             
-            ctx.fillText(iconText, x + 15, markerY + 8);
+            ctx.fillText(iconText, x + 3 + flagWidth / 2, markerY - 5 + flagHeight / 2);
           }
         });
       });
