@@ -1,4 +1,4 @@
-import { X, Image as ImageIcon, Mail, Linkedin, Instagram, Phone, ExternalLink, GraduationCap, School } from "lucide-react";
+import { X, Image as ImageIcon, Mail, Linkedin, Instagram, Phone, ExternalLink, GraduationCap, School, Github, Link } from "lucide-react";
 import { ConstellationData, StarData } from "./constellations";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -75,6 +75,44 @@ export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
               <p className="text-lg text-[#ffffff] leading-relaxed">
                 {star.content.description}
               </p>
+
+              {/* Project Links */}
+              {(star.github || star.projectLink) && (
+                <div className="flex gap-3 flex-wrap">
+                  {star.github && (
+                    <a
+                      href={star.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all hover:scale-105"
+                      style={{
+                        backgroundColor: '#c9900b',
+                        color: '#ffffff',
+                      }}
+                    >
+                      <Github className="h-4 w-4" />
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                  {star.projectLink && (
+                    <a
+                      href={star.projectLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all hover:scale-105"
+                      style={{
+                        backgroundColor: '#f0cd55',
+                        color: '#071e57',
+                      }}
+                    >
+                      <Link className="h-4 w-4" />
+                      <span>Live Project</span>
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {/* Contact Link */}
               {star.link && (
                 <a
                   href={star.link}
@@ -92,6 +130,30 @@ export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
               )}
             </div>
           </div>
+
+          {/* Tech Stack */}
+          {star.techStack && star.techStack.length > 0 && (
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold mb-3" style={{ color: '#f0cd55' }}>
+                Tech Stack
+              </h4>
+              <div className="grid grid-cols-3 gap-3">
+                {star.techStack.map((tech, index) => (
+                  <div
+                    key={index}
+                    className="px-4 py-3 rounded-lg text-center font-medium border-2 transition-all hover:scale-105"
+                    style={{
+                      backgroundColor: '#071e5799',
+                      borderColor: '#c9900b',
+                      color: '#ffffff',
+                    }}
+                  >
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
