@@ -88,10 +88,14 @@ export const constellations: ConstellationData[] = [
     stars: [
       { x: 0.1, y: 0.75, name: "Franklin Scholar", magnitude: 6, content: { title: "Benjamin Franklin Scholar", subtitle: "University of Pennsylvania | 2024", description: "Selected as a Benjamin Franklin Scholar at Penn, an honor given to students who demonstrate exceptional academic achievement and intellectual curiosity." } },
       { x: 0.15, y: 0.85, name: "BIM Scholarship", magnitude: 6, content: { title: "Beasiswa Indonesia Maju", subtitle: "Indonesian Government Scholarship | 2024", description: "Recipient of Indonesia's most prestigious fully-funded scholarship for outstanding students pursuing undergraduate studies abroad." } },
-      { x: 0.05, y: 0.9, name: "Science Olympiad", magnitude: 5, content: { title: "National Science Olympiad", subtitle: "Physics & Astronomy | 2022 - 2024", description: "Competed at national level in Physics and Astronomy olympiads, representing Indonesia internationally." } },
-      { x: 0.22, y: 0.82, name: "ITB Program", magnitude: 5, content: { title: "ITB Summer Program", subtitle: "Electrical Engineering Excellence | 2023", description: "Selected for competitive summer program at Indonesia's top engineering school, STEI Institut Teknologi Bandung." } },
+      { x: 0.05, y: 0.9, name: "CalHacks Winner", magnitude: 6, content: { title: "UC Berkeley CalHacks 12.0", subtitle: "Snapchat Snap AR Track 3rd Place | 2024", description: "Won 3rd place in Snapchat's Snap AR Track at UC Berkeley's CalHacks 12.0, one of the world's largest hackathons." } },
+      { x: 0.22, y: 0.82, name: "Kepler Hackathon", magnitude: 5, content: { title: "Tencent Kepler Plan S3 Hackathon", subtitle: "Best Code, Best Product Idea, Popularity Award", description: "Triple award winner at Tencent's prestigious Kepler Plan hackathon, recognized for technical excellence, innovation, and community impact." } },
+      { x: 0.18, y: 0.92, name: "Physics Gold", magnitude: 5, content: { title: "Indonesian National Science Olympiad", subtitle: "Gold Medal in Physics | 2022", description: "National champion in Physics at Indonesia's most prestigious science competition, representing the country's top young physicists." } },
+      { x: 0.12, y: 0.68, name: "Astronomy Silver", magnitude: 5, content: { title: "Indonesian National Science Olympiad", subtitle: "Silver Medal in Astronomy | 2023", description: "Silver medalist in Astronomy olympiad, competing against Indonesia's brightest students in astrophysics and astronomy." } },
+      { x: 0.25, y: 0.75, name: "CERN Shortlist", magnitude: 4.5, content: { title: "CERN Beamline for Schools 2024", subtitle: "International Shortlist", description: "Team shortlisted for CERN's prestigious Beamline for Schools competition, designing particle physics experiments at the world's leading research facility." } },
+      { x: 0.08, y: 0.78, name: "Clash of Champions", magnitude: 4, content: { title: "Clash of Champions S2", subtitle: "Top 26 Finalist", description: "Reached Top 26 in Indonesia's premier competitive programming and problem-solving tournament." } },
     ],
-    connections: [ [0, 1], [1, 2], [0, 3], [3, 1] ],
+    connections: [ [0, 1], [1, 2], [2, 4], [4, 5], [5, 7], [7, 0], [0, 3], [3, 6], [6, 1] ],
   },
   {
     id: "cygnus",
