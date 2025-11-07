@@ -12,6 +12,9 @@ export interface StarData {
   icon?: string;
   hideImage?: boolean;
   marker?: boolean; // Show a flag/marker above the star
+  github?: string; // GitHub repository link (for projects)
+  projectLink?: string; // Live project link (for projects)
+  techStack?: string[]; // Tech stack used (for projects)
 }
 
 export interface ConstellationData {
@@ -51,13 +54,13 @@ export const constellations: ConstellationData[] = [
     category: "Projects",
     color: "280 70% 65%", // Purple
     stars: [
-      { x: 0.8, y: 0.1, name: "MemARy", magnitude: 6, content: { title: "MemARy", subtitle: "AR Memory Palace Application", description: "AR-based memory palace app using spatial computing to enhance learning and memory retention. Built for PennApps hackathon." } },
-      { x: 0.9, y: 0.15, name: "Nuraga Origami", magnitude: 5, content: { title: "Nuraga Origami Platform", subtitle: "Educational Content Management", description: "Digital platform for teaching origami and Japanese cultural arts, reaching students across Indonesia." } },
-      { x: 0.95, y: 0.22, name: "Portfolio Site", magnitude: 5, content: { title: "Constellation Portfolio", subtitle: "Interactive 3D Portfolio Website", description: "This interactive starfield portfolio using Canvas, React, and TypeScript with dynamic animations." } },
-      { x: 0.98, y: 0.32, name: "Energy Project", magnitude: 4.5, content: { title: "Energy Consulting Project", subtitle: "Sustainable Energy Analysis", description: "Consulting project analyzing renewable energy adoption strategies for Southeast Asian markets." } },
-      { x: 0.94, y: 0.42, name: "PPSN Platform", magnitude: 4.5, content: { title: "PPSN National Platform", subtitle: "Science Olympiad Community", description: "Built digital infrastructure for Indonesia's national science student organization serving 1000+ students." } },
-      { x: 0.88, y: 0.48, name: "Data Pipeline", magnitude: 4, content: { title: "Data Pipeline System", subtitle: "Education Analytics at Ruangguru", description: "Designed and implemented data engineering pipelines for Indonesia's largest edtech platform." } },
-      { x: 0.78, y: 0.45, name: "Business Strategy", magnitude: 4, content: { title: "Business Strategy Framework", subtitle: "Academic & Market Research", description: "Developed business expansion frameworks and market analysis tools during internship at Ruangguru." } },
+      { x: 0.8, y: 0.1, name: "MemARy", magnitude: 6, content: { title: "MemARy", subtitle: "AR Memory Palace Application", description: "AR-based memory palace app using spatial computing to enhance learning and memory retention. Built for PennApps hackathon." }, github: "https://github.com/yourusername/memary", projectLink: "https://devpost.com/software/memary", techStack: ["React Native", "ARKit", "TypeScript"] },
+      { x: 0.9, y: 0.15, name: "Nuraga Origami", magnitude: 5, content: { title: "Nuraga Origami Platform", subtitle: "Educational Content Management", description: "Digital platform for teaching origami and Japanese cultural arts, reaching students across Indonesia." }, github: "https://github.com/yourusername/nuraga", projectLink: "https://nuraga-origami.com", techStack: ["Next.js", "PostgreSQL", "TailwindCSS"] },
+      { x: 0.95, y: 0.22, name: "Portfolio Site", magnitude: 5, content: { title: "Constellation Portfolio", subtitle: "Interactive 3D Portfolio Website", description: "This interactive starfield portfolio using Canvas, React, and TypeScript with dynamic animations." }, github: "https://github.com/arkankau/personal-website", projectLink: "https://arkankau.com", techStack: ["React", "TypeScript", "Canvas API"] },
+      { x: 0.98, y: 0.32, name: "Energy Project", magnitude: 4.5, content: { title: "Energy Consulting Project", subtitle: "Sustainable Energy Analysis", description: "Consulting project analyzing renewable energy adoption strategies for Southeast Asian markets." }, techStack: ["Python", "Pandas", "PowerBI"] },
+      { x: 0.94, y: 0.42, name: "PPSN Platform", magnitude: 4.5, content: { title: "PPSN National Platform", subtitle: "Science Olympiad Community", description: "Built digital infrastructure for Indonesia's national science student organization serving 1000+ students." }, github: "https://github.com/yourusername/ppsn", techStack: ["React", "Firebase", "Node.js"] },
+      { x: 0.88, y: 0.48, name: "Data Pipeline", magnitude: 4, content: { title: "Data Pipeline System", subtitle: "Education Analytics at Ruangguru", description: "Designed and implemented data engineering pipelines for Indonesia's largest edtech platform." }, techStack: ["Python", "Apache Airflow", "BigQuery"] },
+      { x: 0.78, y: 0.45, name: "Business Strategy", magnitude: 4, content: { title: "Business Strategy Framework", subtitle: "Academic & Market Research", description: "Developed business expansion frameworks and market analysis tools during internship at Ruangguru." }, techStack: ["Excel", "SQL", "Tableau"] },
     ],
     connections: [ [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6] ],
   },
