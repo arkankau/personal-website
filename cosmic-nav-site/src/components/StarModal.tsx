@@ -1,4 +1,4 @@
-import { X, Image as ImageIcon, Mail, Linkedin, Instagram, Phone, ExternalLink } from "lucide-react";
+import { X, Image as ImageIcon, Mail, Linkedin, Instagram, Phone, ExternalLink, GraduationCap, School } from "lucide-react";
 import { ConstellationData, StarData } from "./constellations";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -22,6 +22,10 @@ export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
         return <Instagram className="h-16 w-16" />;
       case 'phone':
         return <Phone className="h-16 w-16" />;
+      case 'graduation-cap':
+        return <GraduationCap className="h-16 w-16" />;
+      case 'school':
+        return <School className="h-16 w-16" />;
       default:
         return <ImageIcon className="h-12 w-12" />;
     }

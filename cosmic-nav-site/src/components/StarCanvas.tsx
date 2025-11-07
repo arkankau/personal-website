@@ -276,6 +276,62 @@ export const StarCanvas = ({ onStarClick }: StarCanvasProps) => {
             ctx.textAlign = "center";
             ctx.fillText(star.name, x, y - size - 10);
           }
+
+          // Draw marker/flag with icon for special stars (contact, education)
+          if (star.marker && star.icon) {
+            const markerHeight = 35;
+            const markerY = y - size - markerHeight;
+            const iconSize = 16;
+            
+            // Draw flag pole
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = "#f0cd55";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x, y - size);
+            ctx.lineTo(x, markerY);
+            ctx.stroke();
+
+            // Draw flag
+            ctx.fillStyle = "#c9900b";
+            ctx.beginPath();
+            ctx.moveTo(x, markerY);
+            ctx.lineTo(x + 30, markerY + 8);
+            ctx.lineTo(x, markerY + 16);
+            ctx.closePath();
+            ctx.fill();
+
+            // Draw icon symbol on flag
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 12px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            
+            // Icon representation
+            let iconText = "";
+            switch (star.icon) {
+              case "mail":
+                iconText = "✉";
+                break;
+              case "linkedin":
+                iconText = "in";
+                break;
+              case "instagram":
+                iconText = "IG";
+                break;
+              case "phone":
+                iconText = "☎";
+                break;
+              case "graduation-cap":
+                iconText = "🎓";
+                break;
+              case "school":
+                iconText = "🏫";
+                break;
+            }
+            
+            ctx.fillText(iconText, x + 15, markerY + 8);
+          }
         });
       });
 
