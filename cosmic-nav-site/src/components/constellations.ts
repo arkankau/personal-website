@@ -8,6 +8,9 @@ export interface StarData {
     subtitle: string;
     description: string;
   };
+  link?: string;
+  icon?: string;
+  hideImage?: boolean;
 }
 
 export interface ConstellationData {
@@ -31,10 +34,15 @@ export const constellations: ConstellationData[] = [
       { x: 0.15, y: 0.3, name: "Alnitak", magnitude: 5, content: { title: "Business Consulting", subtitle: "Data-Driven Business Solutions", description: "Leveraging analytics and strategic thinking to drive business impact." } },
       { x: 0.18, y: 0.35, name: "Alnilam", magnitude: 5, content: { title: "Physics Research & Tutoring", subtitle: "Physics Olympiad Tutor/Researcher", description: "Teaching advanced physics and conducting research at Penn Engineering." } },
       { x: 0.2, y: 0.4, name: "Mintaka", magnitude: 4.5, content: { title: "Passions", subtitle: "Business, Sustainability & Education", description: "Passionate about business, sustainability, education, and energy engineering/consulting." } },
-      { x: 0.3, y: 0.45, name: "Rigel", magnitude: 6, content: { title: "Philosophy", subtitle: "Data-Driven Innovation", description: "I believe in using data-driven insights and interdisciplinary collaboration to create meaningful impact." } },
-      { x: 0.05, y: 0.42, name: "Saiph", magnitude: 4.5, content: { title: "Background", subtitle: "From Indonesia", description: "Originally from Indonesia, now studying at the University of Pennsylvania with a focus on AI and systems engineering." } },
+      { x: 0.3, y: 0.45, name: "Rigel", magnitude: 6, content: { title: "Background", subtitle: "From Indonesia to UPenn", description: "Originally from Indonesia, now studying at the University of Pennsylvania with a focus on AI and systems engineering." } },
+      { x: 0.05, y: 0.42, name: "Saiph", magnitude: 5, content: { title: "Education", subtitle: "University of Pennsylvania | 2024 - Current", description: "BSE in Computer Science & Economics (AI concentration). Benjamin Franklin Scholar." } },
+      { x: 0.08, y: 0.25, name: "Meissa", magnitude: 4.5, content: { title: "High School", subtitle: "SMAN 2 Tangerang Selatan | 2021 - 2024", description: "Graduated with honors, active in science olympiads and student leadership." } },
+      { x: 0.27, y: 0.15, name: "Hatsya", magnitude: 4, content: { title: "Email", subtitle: "arkankau@seas.upenn.edu", description: "Best way to reach me for professional inquiries or collaborations." }, link: "mailto:arkankau@seas.upenn.edu", icon: "mail", hideImage: true },
+      { x: 0.32, y: 0.3, name: "Tabit", magnitude: 4, content: { title: "LinkedIn", subtitle: "linkedin.com/in/arkankau", description: "Connect with me professionally and see my career journey!" }, link: "https://linkedin.com/in/arkankau", icon: "linkedin", hideImage: true },
+      { x: 0.25, y: 0.52, name: "Eta Ori", magnitude: 4, content: { title: "Instagram", subtitle: "@arkanfadhil_", description: "Follow my personal journey and daily updates!" }, link: "https://instagram.com/arkanfadhil_", icon: "instagram", hideImage: true },
+      { x: 0.12, y: 0.52, name: "Pi Ori", magnitude: 3.5, content: { title: "Phone", subtitle: "+1 (267) 864-9929", description: "Available via WhatsApp for quick communication." }, link: "https://wa.me/12678649929", icon: "phone", hideImage: true },
     ],
-    connections: [ [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [0, 6], [6, 5] ],
+    connections: [ [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [0, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [5, 11] ],
   },
   {
     id: "ursa-major",
@@ -71,18 +79,15 @@ export const constellations: ConstellationData[] = [
   {
     id: "lyra",
     name: "Lyra",
-    category: "Education & Contact",
+    category: "Honors",
     color: "340 80% 65%", // Pink
     stars: [
-      { x: 0.1, y: 0.75, name: "Vega", magnitude: 6, content: { title: "University of Pennsylvania", subtitle: "BSE Computer Science & Economics | 2024 - Current", description: "Studying Systems Engineering with concentrations in Computer Science (AI) and Economics. Benjamin Franklin Scholar." } },
-      { x: 0.15, y: 0.85, name: "Sheliak", magnitude: 5, content: { title: "Indonesia Maju Scholar", subtitle: "Fully-Funded Scholarship | 2024", description: "Recipient of Indonesia's prestigious Beasiswa Indonesia Maju (BIM) fully-funded college scholarship for outstanding students." } },
-      { x: 0.05, y: 0.9, name: "Sulafat", magnitude: 5, content: { title: "SMAN 2 Tangerang Selatan", subtitle: "High School Diploma | 2021 - 2024", description: "Graduated with honors, active in science olympiads and student leadership." } },
-      { x: 0.22, y: 0.82, name: "Delta Lyrae", magnitude: 4.5, content: { title: "ITB Summer Program", subtitle: "Electrical Engineering | Summer 2023", description: "Intensive summer program in Electrical Engineering at STEI Institut Teknologi Bandung." } },
-      { x: 0.18, y: 0.95, name: "Epsilon Lyr", magnitude: 4, content: { title: "Email", subtitle: "arkankau@seas.upenn.edu", description: "Best way to reach me for professional inquiries or collaborations." } },
-      { x: 0.25, y: 0.88, name: "Zeta Lyr", magnitude: 4, content: { title: "LinkedIn", subtitle: "linkedin.com/in/arkankau", description: "Connect with me professionally and see my career journey!" } },
-      { x: 0.12, y: 0.68, name: "Eta Lyr", magnitude: 4, content: { title: "Phone", subtitle: "+1 (267) 864-9929 | +62 811-979-8100", description: "Available via WhatsApp for quick communication." } },
+      { x: 0.1, y: 0.75, name: "Vega", magnitude: 6, content: { title: "Benjamin Franklin Scholar", subtitle: "University of Pennsylvania | 2024", description: "Selected as a Benjamin Franklin Scholar at Penn, an honor given to students who demonstrate exceptional academic achievement and intellectual curiosity." } },
+      { x: 0.15, y: 0.85, name: "Sheliak", magnitude: 6, content: { title: "Beasiswa Indonesia Maju", subtitle: "Indonesian Government Scholarship | 2024", description: "Recipient of Indonesia's most prestigious fully-funded scholarship for outstanding students pursuing undergraduate studies abroad." } },
+      { x: 0.05, y: 0.9, name: "Sulafat", magnitude: 5, content: { title: "National Science Olympiad", subtitle: "Physics & Astronomy | 2022 - 2024", description: "Competed at national level in Physics and Astronomy olympiads, representing Indonesia internationally." } },
+      { x: 0.22, y: 0.82, name: "Delta Lyrae", magnitude: 5, content: { title: "ITB Summer Program", subtitle: "Electrical Engineering Excellence | 2023", description: "Selected for competitive summer program at Indonesia's top engineering school, STEI Institut Teknologi Bandung." } },
     ],
-    connections: [ [0, 1], [1, 2], [2, 4], [0, 3], [3, 5], [5, 6], [6, 0] ],
+    connections: [ [0, 1], [1, 2], [0, 3], [3, 1] ],
   },
   {
     id: "cygnus",

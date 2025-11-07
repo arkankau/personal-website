@@ -1,4 +1,4 @@
-import { X, Image as ImageIcon } from "lucide-react";
+import { X, Image as ImageIcon, Mail, Linkedin, Instagram, Phone, ExternalLink } from "lucide-react";
 import { ConstellationData, StarData } from "./constellations";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -11,6 +11,21 @@ interface StarModalProps {
 
 export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
   if (!star || !constellation) return null;
+
+  const getIcon = (iconName?: string) => {
+    switch (iconName) {
+      case 'mail':
+        return <Mail className="h-16 w-16" />;
+      case 'linkedin':
+        return <Linkedin className="h-16 w-16" />;
+      case 'instagram':
+        return <Instagram className="h-16 w-16" />;
+      case 'phone':
+        return <Phone className="h-16 w-16" />;
+      default:
+        return <ImageIcon className="h-12 w-12" />;
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#071e57]/80 backdrop-blur-sm animate-fade-in">
@@ -46,14 +61,21 @@ export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-center justify-center p-4 border-2 border-dashed rounded-lg bg-[#ffffff]/5" style={{ borderColor: '#c9900b' }}>
-              <div className="text-center text-[#ffffff]/50">
-                <ImageIcon className="mx-auto h-12 w-12" />
-                <p className="mt-2 text-sm font-semibold">Image Placeholder</p>
+          <div className={`grid gap-6 ${star.hideImage ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+            {!star.hideImage && (
+              <div className="flex items-center justify-center p-4 border-2 border-dashed rounded-lg bg-[#ffffff]/5" style={{ borderColor: '#c9900b' }}>
+                <div className="text-center" style={{ color: star.icon ? '#f0cd55' : '#ffffff50' }}>
+                  {getIcon(star.icon)}
+                  {!star.icon && <p className="mt-2 text-sm font-semibold">Image Placeholder</p>}
+                </div>
               </div>
-            </div>
-            <div className="space-y-4">
+            )}
+            <div className={`space-y-4 ${star.hideImage ? 'flex flex-col items-center text-center' : ''}`}>
+              {star.icon && (
+                <div className="flex justify-center mb-4" style={{ color: '#f0cd55' }}>
+                  {getIcon(star.icon)}
+                </div>
+              )}
               <div
                 className="inline-block px-4 py-2 rounded-full text-sm font-semibold"
                 style={{
@@ -69,6 +91,21 @@ export const StarModal = ({ star, constellation, onClose }: StarModalProps) => {
               <p className="text-lg text-[#ffffff] leading-relaxed">
                 {star.content.description}
               </p>
+              {star.link && (
+                <a
+                  href={star.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+                  style={{
+                    backgroundColor: '#c9900b',
+                    color: '#ffffff',
+                  }}
+                >
+                  <span>Connect Now</span>
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              )}
             </div>
           </div>
 
